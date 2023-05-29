@@ -3,28 +3,71 @@ body {
     background-color: #f2f2f2;
   }
 
-  .container {
+  #container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 5rem auto;
     width: 80%;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 600px;
+  }
+
+  #header {
+    color: #fff;
+    background-color: #5e7aa7;
+    width: 100%;
+    height: 10vh;
+    border-radius: 10px 10px 0 0;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
   }
 
   .main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 70vh;
+    overflow: auto;
   }
 
-  .textbar {
+.main::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: #f2f2f2; /* Background color of the scrollbar track */
+  border-radius: 5px; /* Curved border radius */
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Curved border radius */
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the scrollbar thumb on hover */
+}
+
+.main::-webkit-scrollbar-thumb:active {
+  background-color: #333; /* Color of the scrollbar thumb when clicked */
+}
+
+  #textbar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
+  }
+  
+  #taskList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    padding: 2rem;
   }
   
   input[type="text"] {
@@ -34,19 +77,45 @@ body {
   
   button {
     padding: 10px;
+    color: white;
+  }
+
+  button:focus, input:focus {
+    outline: none;
+    box-shadow: none;
   }
   
+
+  #addButton {
+    background-color: #5e7aa7;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    left: -2px;
+    cursor: pointer;
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
-  li {
-    background-color: white;
-    margin-bottom: 10px;
+
+  .task {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
   }
   
-  li:last-child {
-    margin-bottom: 0;
+  .task-text {
+    margin-right: auto;
+  }
+  
+  .task-remove {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
   }
