@@ -133,6 +133,17 @@ body {
     cursor: pointer;
   }
 
+/* Drag and drop functionality */
+
+.task.dragging {
+  opacity: 0.5; /* Reduce opacity of the dragged task */
+}
+
+.task.over {
+  border: 2px dashed #5e7aa7; /* Add a dashed border to the drop target */
+}
+
+/* Media queries */
 
   @media only screen and (max-width: 450px) {
     #header {

@@ -10,6 +10,7 @@ document.addEventListener("keydown", event => {
   }
 });
 
+/*--- ADD TASK ---*/
 function addTask() {
   const taskText = taskInput.value;
   if (taskText.trim() !== "") {
@@ -23,6 +24,7 @@ function addTask() {
     taskList.appendChild(task);
     taskInput.value = "";
 
+    /*--- REMOVE TASK ---*/
     const removeButton = task.querySelector(".task-remove");
     removeButton.addEventListener("click", () => {
       task.remove();
@@ -38,6 +40,8 @@ function addTask() {
   }
 }
 
+
+/*--- DRAG AND DROP ---*/
 let dragTask = null;
 
 function handleDragStart(event) {
@@ -69,9 +73,12 @@ if (dragTask !== this) {
   const dropIndex = Array.from(taskList.children).indexOf(this);
   // Insert the dragged task at the new drop position
   taskList.insertBefore(dragTask, this);
-}
+  }
+this.classList.remove("over"); // Remove the 'over' class from the drop target
 }
 
 function handleDragEnd(event) {
 this.classList.remove("dragging");
+const dropTargets = document.querySelectorAll(".task.over");
+dropTargets.forEach(dropTarget => dropTarget.classList.remove("over"));
 }
